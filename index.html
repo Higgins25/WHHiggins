@@ -14,7 +14,7 @@
                  justify-content: center;
                  color: #555;
                  font-size: 1.5rem;
-                 background-color: #e0e0e0; /* Fallback color if image fails */
+                 background-color: #e0e0e0; /* Fallback color */
              }
              .burgundy-bg {
                  background-color: #630422; /* Deep burgundy */
@@ -23,10 +23,7 @@
      </head>
      <body class="burgundy-bg text-white min-h-screen">
          <div class="container mx-auto p-6">
-             <div class="photo-box w-full mb-20" id="photoBox">
-                 <img src="https://drive.google.com/uc?export=download&id=1A9yeAFrA6BODLkf3RaJ4OqDO29b3eNaR" alt="Butcher Shop Image" class="w-full h-full object-cover hidden" id="photoImg">
-                 <span id="photoError" class="hidden">Image not loading - try Imgur or recheck sharing settings</span>
-             </div>
+             <div class="photo-box w-full mb-20" id="photoBox"></div>
 
              <div class="max-w-sm mx-auto bg-white text-burgundy-900 p-4 rounded-lg shadow-lg mt-40">
                  <h1 class="text-3xl font-bold text-center mb-2 text-red-800">Welcome to W.H Higgins Butchers!</h1>
@@ -36,15 +33,15 @@
                  <form action="https://usebasin.com/f/58ac5fac6e83" method="POST" class="space-y-2">
                      <div>
                          <label for="firstName" class="block text-lg font-semibold text-red-800">First Name</label>
-                         <input type="text" id="firstName" name="firstName" required class="mt-1 block w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-base">
+                         <input type="text" id="firstName" name="firstName" required class="mt-1 block w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-black">
                      </div>
                      <div>
                          <label for="lastName" class="block text-lg font-semibold text-red-800">Last Name</label>
-                         <input type="text" id="lastName" name="lastName" required class="mt-1 block w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-base">
+                         <input type="text" id="lastName" name="lastName" required class="mt-1 block w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-black">
                      </div>
                      <div>
                          <label for="email" class="block text-lg font-semibold text-red-800">Email</label>
-                         <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-base">
+                         <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 bg-white text-black">
                      </div>
                      <button type="submit" class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 text-lg font-bold">Submit</button>
                  </form>
@@ -77,18 +74,19 @@
                  });
              });
 
-             // Check if image loads
+             // Load image with enhanced handling
              window.addEventListener('load', function() {
                  const photoBox = document.getElementById('photoBox');
-                 const photoImg = document.getElementById('photoImg');
-                 const photoError = document.getElementById('photoError');
-                 photoImg.onload = function() {
-                     photoImg.classList.remove('hidden');
-                     photoError.classList.add('hidden');
+                 const img = new Image();
+                 img.crossOrigin = "anonymous";
+                 img.src = 'https://drive.google.com/uc?export=download&id=1A9yeAFrA6BODLkf3RaJ4OqDO29b3eNaR';
+                 img.onload = function() {
+                     photoBox.style.backgroundImage = `url(${img.src})`;
+                     photoBox.style.backgroundSize = 'cover';
+                     photoBox.style.backgroundPosition = 'center';
                  };
-                 photoImg.onerror = function() {
-                     photoImg.classList.add('hidden');
-                     photoError.classList.remove('hidden');
+                 img.onerror = function() {
+                     photoBox.innerHTML = '<span style="color: #fff;">Image failed to load - consider using Imgur</span>';
                  };
              });
          </script>
