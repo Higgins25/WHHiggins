@@ -10,13 +10,9 @@
                  background-image: url('https://i.postimg.cc/sDtdB6hy/1.png');
                  background-size: cover;
                  background-position: center;
-                 height: 300px;
-                 border: 2px dashed #888;
-                 display: flex;
-                 align-items: center;
-                 justify-content: center;
-                 color: #555;
-                 font-size: 1.5rem;
+                 height: 625px; /* Match the image height */
+                 width: 100%;
+                 display: block; /* Remove flex to avoid text overlay */
              }
              .burgundy-bg {
                  background-color: #630422; /* Deep burgundy */
@@ -25,7 +21,7 @@
      </head>
      <body class="burgundy-bg text-white min-h-screen">
          <div class="container mx-auto p-6">
-             <div class="photo-box w-full mb-20">Large Photo Box</div>
+             <div class="photo-box w-full mb-20"></div>
 
              <div class="max-w-sm mx-auto bg-white text-burgundy-900 p-4 rounded-lg shadow-lg mt-40">
                  <h1 class="text-3xl font-bold text-center mb-2 text-red-800">Welcome to W.H Higgins Butchers!</h1>
