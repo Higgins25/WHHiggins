@@ -7,12 +7,21 @@
          <script src="https://cdn.tailwindcss.com"></script>
          <style>
              .photo-box {
-                 background-image: url('https://i.postimg.cc/9fcWM860/3.png');
-                 background-size: cover;
+                 background-image: url('https://i.postimg.cc/rFQdLfqN/new.png');
+                 background-size: contain;
                  background-position: center;
                  height: 400px;
                  width: 100%;
                  display: block;
+             }
+             /* Mobile-specific adjustment */
+             @media (max-width: 640px) { /* Tailwind's 'sm' breakpoint */
+                 .photo-box {
+                     background-size: contain;
+                     height: auto;
+                     min-height: 200px;
+                     width: 100%;
+                 }
              }
              .burgundy-bg {
                  background-color: #630422; /* Deep burgundy */
@@ -24,7 +33,7 @@
                  background-repeat: no-repeat;
                  height: auto;
                  width: 100%;
-                 min-height: 200px; /* Doubled from 100px to double the size */
+                 min-height: 300px; /* Increased from 200px to 300px for 50% bigger */
              }
          </style>
      </head>
