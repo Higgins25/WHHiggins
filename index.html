@@ -8,26 +8,22 @@
          <style>
              .photo-box {
                  background-image: url('https://i.postimg.cc/rFQdLfqN/new.png');
-                 background-size: contain; /* Changed to contain to show full image */
+                 background-size: contain;
                  background-position: center;
                  background-repeat: no-repeat;
-                 height: auto; /* Adapts to image aspect ratio */
+                 height: auto;
                  width: 100%;
-                 min-height: 300px; /* Minimum height */
-                 padding-top: 33.33%; /* Aspect ratio 1875:625 = 3:1, padding-top as percentage of width */
-                 position: relative;
-             }
-             .photo-box::before {
-                 content: '';
+                 min-height: 300px;
+                 max-height: 625px;
                  display: block;
-                 width: 100%;
-                 padding-top: 33.33%; /* Maintains aspect ratio */
              }
              /* Mobile-specific adjustment */
              @media (max-width: 640px) { /* Tailwind's 'sm' breakpoint */
                  .photo-box {
+                     background-size: contain;
+                     height: auto;
                      min-height: 200px;
-                     padding-top: 33.33%; /* Maintain aspect ratio on mobile */
+                     max-height: 400px;
                  }
              }
              .burgundy-bg {
@@ -46,9 +42,9 @@
      </head>
      <body class="burgundy-bg text-white min-h-screen">
          <div class="container mx-auto p-6">
-             <div class="photo-box w-full mb-10"></div>
+             <div class="photo-box w-full mb-4"></div> <!-- Reduced from mb-10 to mb-4 (50% reduction) -->
 
-             <div class="max-w-sm mx-auto bg-white text-burgundy-900 p-4 rounded-lg shadow-lg mt-20">
+             <div class="max-w-sm mx-auto bg-white text-burgundy-900 p-4 rounded-lg shadow-lg mt-10"> <!-- Reduced from mt-20 to mt-10 (50% reduction) -->
                  <h1 class="text-3xl font-bold text-center mb-2 text-black"><strong>Be the First to Know!</strong></h1>
                  <p class="text-center text-black mb-1">Sign up for exclusive updates on our new ownership, exciting refurbishments, future plans, special offers, new products, website launch, and rebranding.</p>
                  <p class="text-center text-black mb-1">As a thank you, you'll be entered to <strong>win a luxury hamper</strong> filled with wine, artisan meats<br> and fine cheeses.</p>
