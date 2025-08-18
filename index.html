@@ -8,18 +8,17 @@
          <style>
              .photo-box {
                  background-image: url('https://i.postimg.cc/rFQdLfqN/new.png');
-                 background-size: contain;
+                 background-size: cover; /* Reverted to cover for single image fit */
                  background-position: center;
-                 height: auto;
+                 background-repeat: no-repeat; /* Ensures no repetition */
+                 height: 400px;
                  width: 100%;
-                 min-height: 300px;
-                 max-height: 625px;
                  display: block;
              }
              /* Mobile-specific adjustment */
              @media (max-width: 640px) { /* Tailwind's 'sm' breakpoint */
                  .photo-box {
-                     background-size: contain;
+                     background-size: cover;
                      height: auto;
                      min-height: 200px;
                      max-height: 400px;
