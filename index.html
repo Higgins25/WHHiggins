@@ -7,6 +7,9 @@
          <script src="https://cdn.tailwindcss.com"></script>
          <style>
              .photo-box {
+                 background-image: url('https://i.postimg.cc/sDtdB6hy/1.png');
+                 background-size: cover;
+                 background-position: center;
                  height: 300px;
                  border: 2px dashed #888;
                  display: flex;
@@ -14,7 +17,6 @@
                  justify-content: center;
                  color: #555;
                  font-size: 1.5rem;
-                 background-color: #e0e0e0; /* Fallback color */
              }
              .burgundy-bg {
                  background-color: #630422; /* Deep burgundy */
@@ -23,7 +25,7 @@
      </head>
      <body class="burgundy-bg text-white min-h-screen">
          <div class="container mx-auto p-6">
-             <div class="photo-box w-full mb-20" id="photoBox"></div>
+             <div class="photo-box w-full mb-20">Large Photo Box</div>
 
              <div class="max-w-sm mx-auto bg-white text-burgundy-900 p-4 rounded-lg shadow-lg mt-40">
                  <h1 class="text-3xl font-bold text-center mb-2 text-red-800">Welcome to W.H Higgins Butchers!</h1>
@@ -72,22 +74,6 @@
                      messageEl.textContent = 'Error submitting form. Please try again.';
                      messageEl.classList.add('text-red-600');
                  });
-             });
-
-             // Load image with enhanced handling
-             window.addEventListener('load', function() {
-                 const photoBox = document.getElementById('photoBox');
-                 const img = new Image();
-                 img.crossOrigin = "anonymous";
-                 img.src = 'https://drive.google.com/uc?export=download&id=1A9yeAFrA6BODLkf3RaJ4OqDO29b3eNaR';
-                 img.onload = function() {
-                     photoBox.style.backgroundImage = `url(${img.src})`;
-                     photoBox.style.backgroundSize = 'cover';
-                     photoBox.style.backgroundPosition = 'center';
-                 };
-                 img.onerror = function() {
-                     photoBox.innerHTML = '<span style="color: #fff;">Image failed to load - consider using Imgur</span>';
-                 };
              });
          </script>
      </body>
