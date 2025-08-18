@@ -8,10 +8,12 @@
          <style>
              .photo-box {
                  background-image: url('https://i.postimg.cc/rFQdLfqN/new.png');
-                 background-size: contain;
+                 background-size: contain; /* Maintains aspect ratio, adjusts to fit */
                  background-position: center;
-                 height: 400px;
+                 height: auto; /* Allows height to adapt to width */
                  width: 100%;
+                 min-height: 300px; /* Minimum height to ensure visibility */
+                 max-height: 625px; /* Limits height to image's natural height */
                  display: block;
              }
              /* Mobile-specific adjustment */
@@ -20,7 +22,7 @@
                      background-size: contain;
                      height: auto;
                      min-height: 200px;
-                     width: 100%;
+                     max-height: 400px; /* Reduced max height for smaller screens */
                  }
              }
              .burgundy-bg {
@@ -33,7 +35,7 @@
                  background-repeat: no-repeat;
                  height: auto;
                  width: 100%;
-                 min-height: 300px; /* Increased from 200px to 300px for 50% bigger */
+                 min-height: 300px;
              }
          </style>
      </head>
