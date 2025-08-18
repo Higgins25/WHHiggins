@@ -8,12 +8,13 @@
          <style>
              .photo-box {
                  background-image: url('https://i.postimg.cc/rFQdLfqN/new.png');
-                 background-size: contain; /* Maintains aspect ratio, adjusts to fit */
+                 background-size: contain; /* Maintains aspect ratio, fits within container */
                  background-position: center;
-                 height: auto; /* Allows height to adapt to width */
+                 background-repeat: no-repeat; /* Prevents repetition */
+                 height: auto; /* Adapts to content */
                  width: 100%;
-                 min-height: 300px; /* Minimum height to ensure visibility */
-                 max-height: 625px; /* Limits height to image's natural height */
+                 min-height: 300px; /* Minimum height */
+                 max-height: 625px; /* Matches image height to avoid overflow */
                  display: block;
              }
              /* Mobile-specific adjustment */
@@ -22,7 +23,7 @@
                      background-size: contain;
                      height: auto;
                      min-height: 200px;
-                     max-height: 400px; /* Reduced max height for smaller screens */
+                     max-height: 400px; /* Adjusted for smaller screens */
                  }
              }
              .burgundy-bg {
@@ -91,8 +92,3 @@
                  }).catch(error => {
                      messageEl.textContent = 'Error submitting form. Please try again. Error: ' + error.message;
                      messageEl.classList.add('text-red-600');
-                 });
-             });
-         </script>
-     </body>
-     </html>
