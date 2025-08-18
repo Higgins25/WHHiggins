@@ -8,13 +8,12 @@
          <style>
              .photo-box {
                  background-image: url('https://i.postimg.cc/rFQdLfqN/new.png');
-                 background-size: contain; /* Maintains aspect ratio, fits within container */
+                 background-size: contain;
                  background-position: center;
-                 background-repeat: no-repeat; /* Prevents repetition */
-                 height: auto; /* Adapts to content */
+                 height: auto;
                  width: 100%;
-                 min-height: 300px; /* Minimum height */
-                 max-height: 625px; /* Matches image height to avoid overflow */
+                 min-height: 300px;
+                 max-height: 625px;
                  display: block;
              }
              /* Mobile-specific adjustment */
@@ -23,7 +22,7 @@
                      background-size: contain;
                      height: auto;
                      min-height: 200px;
-                     max-height: 400px; /* Adjusted for smaller screens */
+                     max-height: 400px;
                  }
              }
              .burgundy-bg {
@@ -47,8 +46,8 @@
              <div class="max-w-sm mx-auto bg-white text-burgundy-900 p-4 rounded-lg shadow-lg mt-20">
                  <h1 class="text-3xl font-bold text-center mb-2 text-black"><strong>Be the First to Know!</strong></h1>
                  <p class="text-center text-black mb-1">Sign up for exclusive updates on our new ownership, exciting refurbishments, future plans, special offers, new products, website launch, and rebranding.</p>
-                 <p class="text-center text-black mb-1">As a thank you, you'll be entered to <strong>win a luxury hamper</strong> filled with wine, artisan meats, and fine cheeses.</p>
-                 <p class="text-center text-black mb-2">Come along for the journey – we’d love to have you with us!</p>
+                 <p class="text-center text-black mb-1">As a thank you, you'll be entered to <strong>win a luxury hamper</strong> filled with wine, artisan meats<br> and fine cheeses.</p>
+                 <p class="text-center text-black mb-2">Come along for the journey -<br> we’d love to have you with us!</p>
                  <form action="https://usebasin.com/f/58ac5fac6e83" method="POST" class="space-y-2">
                      <div>
                          <label for="firstName" class="block text-lg font-semibold text-black">First Name</label>
@@ -92,3 +91,8 @@
                  }).catch(error => {
                      messageEl.textContent = 'Error submitting form. Please try again. Error: ' + error.message;
                      messageEl.classList.add('text-red-600');
+                 });
+             });
+         </script>
+     </body>
+     </html>
