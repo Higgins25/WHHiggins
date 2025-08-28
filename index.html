@@ -20,11 +20,29 @@
              /* Mobile-specific adjustment */
              @media (max-width: 640px) { /* Tailwind's 'sm' breakpoint */
                  .photo-box {
-                     background-image: url('https://i.postimg.cc/cC9qfHLN/headers-original.png');
+                     display: none; /* Hide single image on mobile */
+                 }
+                 .mobile-images {
+                     display: flex;
+                     flex-direction: column;
+                     width: 100%;
+                     margin-bottom: 1rem; /* Matches mb-4 spacing */
+                 }
+                 .mobile-image-1, .mobile-image-2 {
                      background-size: contain;
-                     height: auto;
-                     min-height: 360px;
-                     max-height: 720px;
+                     background-position: center;
+                     background-repeat: no-repeat;
+                     height: 0;
+                     padding-top: 50%; /* Placeholder aspect ratio, adjust based on images */
+                     width: 100%;
+                     min-height: 180px; /* Half of 360px for each image */
+                     max-height: 360px; /* Half of 720px for each image */
+                 }
+                 .mobile-image-1 {
+                     background-image: url('https://i.postimg.cc/HnjvDtdf/new-top-top.png');
+                 }
+                 .mobile-image-2 {
+                     background-image: url('https://i.postimg.cc/h4338N0g/new-top-bot.png');
                  }
              }
              .burgundy-bg {
@@ -44,6 +62,10 @@
      <body class="burgundy-bg text-white min-h-screen">
          <div class="container mx-auto p-6">
              <div class="photo-box w-full mb-4"></div>
+             <div class="mobile-images" style="display: none;"> <!-- Hidden on desktop -->
+                 <div class="mobile-image-1"></div>
+                 <div class="mobile-image-2"></div>
+             </div>
              <div class="max-w-sm mx-auto bg-ivory text-burgundy-900 p-4 rounded-lg shadow-lg mt-10" style="background-color: #FFFFF0;">
                  <h1 class="text-[1.35rem] font-bold text-center mb-2 text-black"><strong>Be the First to Know!</strong></h1>
                  <p class="text-center text-black mb-1 text-[0.9rem]">Sign up for exclusive updates on our new ownership, exciting refurbishments, future plans, special offers, new products, website launch, and rebranding.</p>
