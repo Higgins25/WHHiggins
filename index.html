@@ -45,9 +45,6 @@
                      background-image: url('https://i.postimg.cc/9FDXJ55B/new-top-bot.png');
                  }
              }
-             .burgundy-bg {
-                 background-color: #630422; /* Deep burgundy */
-             }
              .footer-img {
                  background-image: url('https://i.postimg.cc/zDn3vp7X/Website-Footer-new.png');
                  background-size: contain;
@@ -56,6 +53,38 @@
                  height: auto;
                  width: 100%;
                  min-height: 300px;
+                 display: block;
+             }
+             /* Mobile-specific adjustment for footer */
+             @media (max-width: 640px) { /* Tailwind's 'sm' breakpoint */
+                 .footer-img {
+                     display: none; /* Hide single footer image on mobile */
+                 }
+                 .mobile-footer-images {
+                     display: flex;
+                     flex-direction: column;
+                     width: 100%;
+                     margin-top: 1rem; /* Matches mt-6 spacing */
+                 }
+                 .mobile-footer-image-1, .mobile-footer-image-2 {
+                     background-size: contain;
+                     background-position: center;
+                     background-repeat: no-repeat;
+                     height: 0;
+                     padding-top: 50%; /* Placeholder aspect ratio, adjust based on images */
+                     width: 100%;
+                     min-height: 150px; /* Half of 300px for each image */
+                     max-height: 150px; /* Half of 300px for each image */
+                 }
+                 .mobile-footer-image-1 {
+                     background-image: url('https://i.postimg.cc/9XRFBHjY/new-bot-top.png');
+                 }
+                 .mobile-footer-image-2 {
+                     background-image: url('https://i.postimg.cc/sgyjyBGT/new-bot-bot.png');
+                 }
+             }
+             .burgundy-bg {
+                 background-color: #630422; /* Deep burgundy */
              }
          </style>
      </head>
@@ -89,6 +118,10 @@
                  <p id="message" class="mt-3 text-center text-lg text-green-700"></p>
              </div>
              <div class="footer-img w-full mt-6"></div>
+             <div class="mobile-footer-images" style="display: none;"> <!-- Hidden on desktop -->
+                 <div class="mobile-footer-image-1"></div>
+                 <div class="mobile-footer-image-2"></div>
+             </div>
          </div>
          <script>
              document.querySelector('form').addEventListener('submit', function(event) {
